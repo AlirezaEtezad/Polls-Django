@@ -25,6 +25,9 @@ from .models import Question, Choice
 def test(request):
     return HttpResponse("<h1>Hello, You are in Polls test.</h1>")
 
+def test_404(request):
+    return render(request, "404.html", status=404)
+
 
 # def detail(request, question_id):
 #     # return HttpResponse("You're looking at question %s." % question_id)
@@ -99,3 +102,7 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+
+# def custom_404_view(request, exception=None):
+#     return render(request, "404.html", status=404)

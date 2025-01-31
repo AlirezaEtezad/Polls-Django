@@ -1,9 +1,10 @@
-
 from django.urls import path
+from django.conf.urls import handler404
 from . import views
 
 
 app_name = "polls"
+# handler404 = views.custom_404_view
 
 # urlpatterns = [
 #     path("", views.index, name="index"),
@@ -25,5 +26,6 @@ urlpatterns = [
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
     path("test", views.test, name="test"),
+    # path("test-404/", views.test_404, name="test_404"),
     
 ]
